@@ -13,26 +13,25 @@ class FourierCoordinate {
                                   const FourierCoordinate& c) {
     return out << c.fourier_transformed;
   }
-  fourier::Coordinates<double> e_alpha_i(double alpha) {
+  fourier::Coordinates<double> e_alpha_i(double alpha, double frequency) {
+    alpha *= frequency;
     return Coordinates<double>(cos(alpha), sin(alpha));
   }
 
-  Coordinates<double> calculateFourierCoordinates(int x, double y) {
-    return e_alpha_i(x) * y;
+  Coordinates<double> calculateFourierCoordinates(int x, double y,
+                                                  double frequency = 1) {
+    return e_alpha_i(x, frequency) * y;
   }
 
-  FourierCoordinate(int x, double y) : x_input(x), y_input(y) {
-    fourier_transformed = calculateFourierCoordinates(x, y);
+  FourierCoordinate(int x, double y, double frequency)
+      : x_input(x), y_input(y) {
+    fourier_transformed = calculateFourierCoordinates(x, y, frequency);
   }
 
-  FourierCoordinate(std::pair<int, double> i)
+  FourierCoordinate(std::pair<int, double> i, double frequency)
       : x_input(i.first), y_input(i.second) {
-    fourier_transformed = calculateFourierCoordinates(i.first, i.second);
-  }
-
-  FourierCoordinate(std::pair<int, double>& i)
-      : x_input(i.first), y_input(i.second) {
-    fourier_transformed = calculateFourierCoordinates(i.first, i.second);
+    fourier_transformed =
+        calculateFourierCoordinates(i.first, i.second, frequency);
   }
 };
 }  // namespace fourier
