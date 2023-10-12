@@ -6,6 +6,7 @@ project(FourierTransform)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # asserts compile_commands.json gets generated
 
 # find_package(Curses REQUIRED)
 include_directories(

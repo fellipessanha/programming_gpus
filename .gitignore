@@ -6,3 +6,4 @@ Makefile
 .cache
 .vscode
 FourierTransform
+compile_commands.json
