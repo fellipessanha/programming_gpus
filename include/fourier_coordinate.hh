@@ -9,6 +9,9 @@ class FourierCoordinate {
   Coordinates<double> fourier_transformed;
 
  public:
+  double x(void) { return fourier_transformed.coords.first; }
+  double y(void) { return fourier_transformed.coords.second; }
+
   friend std::ostream& operator<<(std::ostream& out,
                                   const FourierCoordinate& c) {
     return out << c.fourier_transformed;
