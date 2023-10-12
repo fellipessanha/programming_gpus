@@ -1,21 +1,17 @@
+#include <cstdio>
 #include <iostream>
 #include <vector>
 
-#include "fourier_coordinate.hh"
+#include "fourier_point.hh"
 #include "utils.cc"
 
 int main() {
   auto vals = fourier::get_2x_sample(11, 10);
-  std::vector<fourier::FourierCoordinate> fouriered;
-  for (auto k : vals) {
-    std::cout << "(" << k.first << ", " << k.second << ")\nbecomes:\t";
-    fourier::FourierCoordinate treated(k.first, k.second);
-    fouriered.push_back(treated);
+  std::vector<fourier::FourierPoint> fouriered;
+  for (double i = 1; i < 130; i++) {
+    auto f = i / 10.0;
+    auto point = fourier::FourierPoint(vals, f);
+    std::cout << "for frequency " << f << ": value =\t" << point << "\n";
+    fouriered.push_back(point);
   }
-
-  std::cout << "\n agora fourierizado:\n";
-  for (auto k : fouriered) {
-    std::cout << k << "\n";
-  }
-  return 0;
 }

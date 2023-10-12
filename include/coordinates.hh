@@ -7,8 +7,10 @@ namespace fourier {
 
 template <typename T>
 class Coordinates {
- public:
   std::pair<T, T> coords;
+
+ public:
+  std::pair<T, T> value() { return coords; }
 
   Coordinates& operator+=(const Coordinates& rhs) {
     coords.first += rhs.coords.first;

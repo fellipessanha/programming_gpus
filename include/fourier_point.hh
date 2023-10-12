@@ -18,6 +18,12 @@ class FourierPoint {
   }
 
  public:
+  std::pair<double, double> getValue() { return value.value(); }
+
+  friend std::ostream& operator<<(std::ostream& out, const FourierPoint& c) {
+    return out << c.value;
+  }
+
   FourierPoint(std::vector<std::pair<int, double>> inputs, double _frequency)
       : frequency(_frequency) {
     for (auto v : inputs) {
