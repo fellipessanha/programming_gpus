@@ -2,7 +2,7 @@
 
 namespace fourier {
 
-class FourierPoint {
+class FourierCoordinate {
     int x_input;
     double y_input;
     Coordinates<double> fourier_transformed;
@@ -15,8 +15,12 @@ class FourierPoint {
         return e_alpha_i(x) * y;
     }
 
-    FourierPoint(int x, double y) : x_input(x), y_input(y) {
+    FourierCoordinate(int x, double y) : x_input(x), y_input(y) {
         fourier_transformed = calculateFourierCoordinates(x, y);
+    }
+
+    FourierCoordinate(std::pair<int, double> i) : x_input(i.first), y_input(i.second) {
+        fourier_transformed = calculateFourierCoordinates(i.first, i.second);
     }
 };
 }
