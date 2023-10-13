@@ -11,8 +11,8 @@ class FourierCoordinate {
   Coordinates<double> fourier_transformed;
 
  public:
-  double x(void) { return fourier_transformed.coords.first; }
-  double y(void) { return fourier_transformed.coords.second; }
+  double x(void) { return fourier_transformed.value().first; }
+  double y(void) { return fourier_transformed.value().second; }
 
   friend std::ostream& operator<<(std::ostream& out,
                                   const FourierCoordinate& c) {
