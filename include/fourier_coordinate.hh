@@ -1,3 +1,5 @@
+#pragma once
+
 #include "coordinates.hh"
 #include "math.h"
 
