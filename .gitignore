@@ -7,3 +7,5 @@ Makefile
 .vscode
 FourierTransform
 compile_commands.json
+venv/
+fourier_plot_data.csv

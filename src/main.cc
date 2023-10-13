@@ -13,5 +13,7 @@ int main() {
     auto point = fourier::FourierPoint(vals, f);
     std::cout << "for frequency " << f << ": value =\t" << point << "\n";
     fouriered.push_back(point);
+
+    fourier::printToFile(fouriered);
   }
 }

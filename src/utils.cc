@@ -2,10 +2,11 @@
 
 #include <math.h>
 
+#include <cstdio>
 #include <utility>
 #include <vector>
 
-#include "coordinates.hh"
+#include "fourier_point.hh"
 
 namespace fourier {
 
@@ -19,5 +20,15 @@ std::vector<std::pair<int, double>> get_2x_sample(int sample_size,
     ret.push_back(val);
   }
   return ret;
+}
+
+void printToFile(std::vector<fourier::FourierPoint> data) {
+  FILE* f = fopen("fourier_plot_data.csv", "w");
+  fprintf(f, "frequency,x,y\n");
+  for (auto i : data) {
+    fprintf(f, "%f,%f,%f\n", i.getFrequency(), i.getValue().first,
+            i.getValue().second);
+  }
+  fclose(f);
 }
 }  // namespace fourier
